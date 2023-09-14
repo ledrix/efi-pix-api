@@ -75,7 +75,7 @@ app.post("/rota-recebimento-teste", async (req, res) => {
     console.error(error);
     return res.status(402).json({ error: "error: " + error });
   }
-  return res.status(200).json({ mensagem: "pix realizado" });
+  return res.status(200).json({ mensagem: "pix realizado com sucesso" });
 });
 
 //código escrito por Lucas Carvalho em meados de Junho de 2023...
