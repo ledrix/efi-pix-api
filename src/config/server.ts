@@ -86,7 +86,7 @@ app.post("/rota-recebimento", async (req, res) => {
         console.log("Creditando valor do pix na máquina 1");
       }
 
-      if (req.body.pix[0].txid == "kHXIxtQ9f4aFTuTZbDZntKM2") {
+      if (req.body.pix[0].txid == "HXIxtQ9f4aFTuTZbDZntKM2") {
         valorPixMaquina2 = req.body.pix[0].valor;
         console.log("Creditando valor do pix na máquina 2");
       }
