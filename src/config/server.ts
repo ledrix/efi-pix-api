@@ -11,7 +11,8 @@ app.use(cors());
 
 app.use(express.json());
 
-var valorPixMaquina1 = 0; //kanymachinesrafostecno
+var valorPixMaquina1 = 0; //ZQy2tcerltlitYMS3VB1IM1
+var valorPixMaquina2 = 0; //HXIxtQ9f4aFTuTZbDZntKM2
 
 function converterPixRecebido(valorPix: number) {
   var valorAux = 0;
@@ -30,11 +31,24 @@ function converterPixRecebido(valorPix: number) {
   }
 }
 
-//flaksdfjaskldfj << ALTERAR PARA O TXID DA MAQUINA
+//ZQy2tcerltlitYMS3VB1IM1 << ALTERAR PARA O TXID DA MAQUINA
 app.get("/query-kany-machine01", async (req, res) => {
   var pulsosFormatados = converterPixRecebido(valorPixMaquina1); //<<<<<<ALTERAR PARA O NUMERO DA MAQUINA
 
   valorPixMaquina1 = 0; //<<<<<<<<<ALTERAR PARA O NUMERO DA MAQUINA
+
+  if (pulsosFormatados != "0000") {
+    return res.status(200).json({ retorno: pulsosFormatados });
+  } else {
+    return res.status(200).json({ retorno: "0000" });
+  }
+});
+
+//HXIxtQ9f4aFTuTZbDZntKM2 << ALTERAR PARA O TXID DA MAQUINA
+app.get("/query-kany-machine02", async (req, res) => {
+  var pulsosFormatados = converterPixRecebido(valorPixMaquina2); //<<<<<<ALTERAR PARA O NUMERO DA MAQUINA
+
+  valorPixMaquina2 = 0; //<<<<<<<<<ALTERAR PARA O NUMERO DA MAQUINA
 
   if (pulsosFormatados != "0000") {
     return res.status(200).json({ retorno: pulsosFormatados });
@@ -67,13 +81,13 @@ app.post("/rota-recebimento", async (req, res) => {
     console.log(req.body.pix[0].valor);
 
     if (req.body.pix) {
-      if (req.body.pix[0].txid == "kanymachinesrafostecno") {
+      if (req.body.pix[0].txid == "ZQy2tcerltlitYMS3VB1IM1") {
         valorPixMaquina1 = req.body.pix[0].valor;
         console.log("Creditando valor do pix na máquina 1");
       }
 
-      if (req.body.pix[0].txid == "flaksdfjaskldfj") {
-        //valordoPixMaquina2 = req.body.pix[0].valor;
+      if (req.body.pix[0].txid == "kHXIxtQ9f4aFTuTZbDZntKM2") {
+        valorPixMaquina2 = req.body.pix[0].valor;
         console.log("Creditando valor do pix na máquina 2");
       }
     }
@@ -97,7 +111,12 @@ app.post("/rota-recebimento-teste", async (req, res) => {
     var txid = req.body.txid;
     if (txid == "kanymachinesrafostecno") {
       valorPixMaquina1 = req.body.valor;
-      console.log("setado valor pix para maquina 1:" + req.body.valor);
+      console.log("Set pix value to machine 1:" + req.body.valor);
+    }
+
+    if (txid == "kanymachinesrafostecn2") {
+      valorPixMaquina2 = req.body.valor;
+      console.log("Set pix value to machine 2:");
     }
 
     console.log(req.body.valor);
@@ -108,6 +127,6 @@ app.post("/rota-recebimento-teste", async (req, res) => {
   return res.status(200).json({ mensagem: "ok" });
 });
 
-//código escrito por Lucas Carvalho em meados de Junho de 2023...
-//git push heroku main
+//código escrito por Raphael Fernando Oliveira...
+
 app.listen(PORT, () => console.log(`localhost:${PORT}`));
