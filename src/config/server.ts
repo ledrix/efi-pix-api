@@ -111,12 +111,12 @@ app.post("/rota-recebimento-teste", async (req, res) => {
     var txid = req.body.txid;
     if (txid == "ZQy2tcerltlitYMS3VB1IM1") {
       valorPixMaquina1 = req.body.valor;
-      console.log("Set pix value to machine 1: " + req.body.valor + "Reais");
+      console.log("Set pix value to machine01: " + req.body.valor + ".00");
     }
 
     if (txid == "HXIxtQ9f4aFTuTZbDZntKM2") {
       valorPixMaquina2 = req.body.valor;
-      console.log("Set pix value to machine 2: " + req.body.valor + "Reais");
+      console.log("Set pix value to machine02: " + req.body.valor + ".00");
     }
 
     console.log(req.body.valor);
