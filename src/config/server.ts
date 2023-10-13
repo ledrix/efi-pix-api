@@ -114,7 +114,7 @@ app.post("/rota-recebimento-teste", async (req, res) => {
       console.log("Set pix value to machine 1:" + req.body.valor);
     }
 
-    if (txid == "kHXIxtQ9f4aFTuTZbDZntKM2") {
+    if (txid == "HXIxtQ9f4aFTuTZbDZntKM2") {
       valorPixMaquina2 = req.body.valor;
       console.log("Set pix value to machine 2:");
     }
