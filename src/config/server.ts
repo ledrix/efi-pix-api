@@ -11,8 +11,8 @@ app.use(cors());
 
 app.use(express.json());
 
-var valorPixMaquina1 = 0; //ZQy2tcerltlitYMS3VB1IM1
-var valorPixMaquina2 = 0; //HXIxtQ9f4aFTuTZbDZntKM2
+var valorPixMaquina1 = 0; //txid: ZQy2tcerltlitYMS3VB1IM1
+var valorPixMaquina2 = 0; //txid: HXIxtQ9f4aFTuTZbDZntKM2
 
 function converterPixRecebido(valorPix: number) {
   var valorAux = 0;
